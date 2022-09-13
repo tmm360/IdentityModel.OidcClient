@@ -32,15 +32,15 @@ namespace ConsoleClientWithBrowser
         {
             // create a redirect URI using an available port on the loopback address.
             // requires the OP to allow random ports on 127.0.0.1 - otherwise set a static port
-            var browser = new SystemBrowser();
+            var browser = new SystemBrowser(59100);
             string redirectUri = string.Format($"http://127.0.0.1:{browser.Port}");
 
             var options = new OidcClientOptions
             {
-                Authority = "https://demo.duendesoftware.com",
-                ClientId = "interactive.public.short",
+                Authority = "https://localhost:44379/",
+                ClientId = "ethernaVideoImporterId",
                 RedirectUri = redirectUri,
-                Scope = "openid profile api offline_access",
+                Scope = "openid profile ether_accounts role offline_access",
                 FilterClaims = false,
 
                 Browser = browser,
