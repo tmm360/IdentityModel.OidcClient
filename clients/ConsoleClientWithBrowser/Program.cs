@@ -11,7 +11,7 @@ namespace ConsoleClientWithBrowser
 {
     public class Program
     {
-        static string _api = "https://demo.duendesoftware.com/api/test";
+        static string _api = "https://localhost:44369";
 
         static OidcClient _oidcClient;
         static HttpClient _apiClient = new HttpClient { BaseAddress = new Uri(_api) };
@@ -109,7 +109,7 @@ namespace ConsoleClientWithBrowser
 
         private static async Task CallApi()
         {
-            var response = await _apiClient.GetAsync("");
+            var response = await _apiClient.GetAsync("/api/v0.3/User/credit");
 
             if (response.IsSuccessStatusCode)
             {
