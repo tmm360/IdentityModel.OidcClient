@@ -40,7 +40,7 @@ namespace ConsoleClientWithBrowser
                 Authority = "https://localhost:44379/",
                 ClientId = "ethernaVideoImporterId",
                 RedirectUri = redirectUri,
-                Scope = "openid profile ether_accounts role offline_access",
+                Scope = "openid profile offline_access ether_accounts userApi.gateway userApi.index",
                 FilterClaims = false,
 
                 Browser = browser,
