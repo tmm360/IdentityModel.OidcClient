@@ -11,7 +11,7 @@ namespace ConsoleClientWithBrowser
 {
     public class Program
     {
-        static string _api = "https://localhost:44369";
+        static string _api = "https://index.etherna.io/";
 
         static OidcClient _oidcClient;
         static HttpClient _apiClient = new HttpClient { BaseAddress = new Uri(_api) };
@@ -37,7 +37,7 @@ namespace ConsoleClientWithBrowser
 
             var options = new OidcClientOptions
             {
-                Authority = "https://localhost:44379/",
+                Authority = "https://sso.etherna.io/",
                 ClientId = "ethernaVideoImporterId",
                 RedirectUri = redirectUri,
                 Scope = "openid profile offline_access ether_accounts userApi.gateway userApi.index",
@@ -109,7 +109,7 @@ namespace ConsoleClientWithBrowser
 
         private static async Task CallApi()
         {
-            var response = await _apiClient.GetAsync("/api/v0.3/User/credit");
+            var response = await _apiClient.GetAsync("/api/v0.3/Users/current");
 
             if (response.IsSuccessStatusCode)
             {
